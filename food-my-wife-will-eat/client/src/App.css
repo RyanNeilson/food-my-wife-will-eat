@@ -1,0 +1,273 @@
+html {
+  box-sizing: border-box;
+}
+
+.App {
+  position: relative;
+  min-height: 100vh;
+}
+
+.main-content {
+  position: relative;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 0 5px 0 #444;
+  padding: 1rem;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #f8f9fa;
+}
+
+img {
+  width: 100%;
+}
+
+.navbar {
+  box-shadow: 0 0 5px 0 #444;
+}
+
+.landing {
+  position: relative;
+  background: url("./img/cooking-background.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 85vh;
+  margin-top: -24px;
+  margin-bottom: -50px;
+}
+
+.landing-inner {
+  padding-top: 80px;
+}
+
+.dark-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.card-form {
+  opacity: 0.9;
+}
+
+.latest-profiles-img {
+  width: 40px;
+  height: 40px;
+}
+
+.form-control::placeholder {
+  color: #666 !important;
+}
+
+.navbar-brand {
+  font-family: "Oswald";
+  font-size: 1.6rem;
+}
+
+.recipe-author {
+  text-align: center;
+  font-size: 12px;
+}
+
+.form-control,
+.form-control-lg,
+.lead {
+  font-size: 1rem;
+}
+
+.likesAndComments {
+  color: #333;
+  padding: 15px;
+  margin: 15px;
+}
+
+.lead {
+  color: #333;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+p {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue";
+}
+
+.card {
+  box-shadow: 0 0 5px 0 #b3b3b3;
+}
+
+.btn {
+  border-radius: 3px;
+}
+
+.btn-light,
+.badge-light {
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+textarea.form-control {
+  height: 20vh;
+  min-height: 100px;
+}
+
+.btn-light:hover {
+  background-color: #f8f9fa;
+  box-shadow: 0 0 5px 0 #b3b3b3;
+}
+
+.btn:hover {
+  box-shadow: 0 0 5px 0 #b3b3b3;
+}
+
+#landing-text {
+  color: white;
+}
+
+.card-header,
+.bg-info,
+.btn-info {
+  background-color: #4582ec !important;
+  border: 1px solid #4582ec !important;
+}
+
+.btn-info:hover {
+  background-color: #3265bc;
+  border: 1px solid #3265bc;
+}
+
+.text-info {
+  color: #4582ec !important;
+}
+
+.bg-dark {
+  background-color: #3265bc !important;
+}
+
+.rating {
+  padding-bottom: 10px;
+  position: relative;
+  float: left;
+}
+
+.hidden {
+  opacity: 0;
+  display: none !important;
+}
+
+.star {
+  display: inline-block;
+  margin: 4px;
+  font-size: 18px;
+  color: whitesmoke;
+  position: relative;
+}
+.star.animate {
+  -webkit-animation: stretch-bounce 0.5s ease-in-out;
+}
+.star.hidden {
+  opacity: 0;
+}
+
+.full:before {
+  font-family: fontAwesome;
+  display: inline-block;
+  content: "\f005";
+  position: relative;
+  float: right;
+  z-index: 2;
+}
+
+.half:before {
+  font-family: fontAwesome;
+  content: "\f089";
+  position: absolute;
+  float: left;
+  z-index: 3;
+}
+
+.star-colour {
+  color: #ffd700;
+}
+
+@-webkit-keyframes stretch-bounce {
+  0% {
+    -webkit-transform: scale(1);
+  }
+  25% {
+    -webkit-transform: scale(1.5);
+  }
+  50% {
+    -webkit-transform: scale(0.9);
+  }
+  75% {
+    -webkit-transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
+
+.selected:before {
+  font-family: fontAwesome;
+  display: inline-block;
+  content: "\f005";
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: scale(1);
+  opacity: 1;
+  z-index: 1;
+}
+
+.selected.pulse:before {
+  -webkit-transform: scale(3);
+  opacity: 0;
+}
+
+.selected.is-animated:before {
+  transition: 1s ease-out;
+}
+
+.score {
+  color: #4582ec;
+}
+
+.score-rating {
+  position: relative;
+}
+
+.total {
+  position: relative;
+}
+
+/*** Not currently used ***/
+.average {
+  font-family: arial;
+  font-size: 20px;
+  color: indianred;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.average .score-average {
+  padding-top: 30px;
+}
