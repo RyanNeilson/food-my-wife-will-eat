@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import { deleteComment } from "../../actions/recipeActions";
 
 class CommentItem extends Component {
@@ -15,26 +16,26 @@ class CommentItem extends Component {
       <div className="card card-body mb-3">
         <div className="row">
           <div className="col-md-2">
-            <a href="profile.html">
+            <Link to={`/profile/${comment.handle}`}>
               <img
                 className="rounded-circle d-none d-md-block"
                 src={comment.avatar}
                 alt=""
               />
-            </a>
+            </Link>
             <br />
             <p className="text-center">{comment.name}</p>
           </div>
           <div className="col-md-10">
             <p className="lead">{comment.text}</p>
             {comment.user === auth.user.id ? (
-              <button
+              <a
                 onClick={this.onDeleteClick.bind(this, recipeId, comment._id)}
-                type="button"
-                className="btn btn-danger mr-1"
+                class="text-danger"
+                id="deleteComment"
               >
-                <i className="fas fa-times" />
-              </button>
+                Delete Comment
+              </a>
             ) : null}
           </div>
         </div>

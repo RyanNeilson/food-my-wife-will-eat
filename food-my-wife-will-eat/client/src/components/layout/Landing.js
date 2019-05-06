@@ -17,7 +17,9 @@ class Landing extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-12 text-center">
-                <h1 className="display-3 mb-4">Food My Wife Will Eat</h1>
+                <h1 className="display-3 mb-4 greeting">
+                  Food My Wife Will Eat
+                </h1>
                 <p className="lead" id="landing-text">
                   {" "}
                   Create a profile and share your favorite recipes!

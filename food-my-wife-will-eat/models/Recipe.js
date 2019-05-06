@@ -28,6 +28,18 @@ const RecipeSchema = new Schema({
   avatar: {
     type: String
   },
+  ratings: [
+    {
+      user: {
+        type: Schema.Types.ObjectId,
+        ref: "users"
+      },
+      rating: {
+        type: Number,
+        required: true
+      }
+    }
+  ],
   likes: [
     {
       user: {
@@ -47,6 +59,9 @@ const RecipeSchema = new Schema({
         required: true
       },
       name: {
+        type: String
+      },
+      handle: {
         type: String
       },
       avatar: {

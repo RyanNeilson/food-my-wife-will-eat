@@ -25,6 +25,7 @@ import Recipe from "./components/recipe/Recipe";
 import RecipeForm from "./components/recipes/RecipeForm";
 import NotFound from "./components/not-found/NotFound";
 import EditRecipe from "./components/recipes/EditRecipe";
+import Search from "./components/recipes/Search";
 import "./App.css";
 
 // Check for token
@@ -55,8 +56,8 @@ class App extends Component {
         <Router>
           <div className="App">
             <Navbar />
-            <Route exact path="/" component={Landing} />
-            <div className="container main-content">
+            <div className="main-content">
+              <Route exact path="/" component={Landing} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/profiles" component={Profiles} />
@@ -93,6 +94,9 @@ class App extends Component {
                   path="/recipe/:id/edit-recipe"
                   component={EditRecipe}
                 />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/search" component={Search} />
               </Switch>
 
               <Route exact path="/not-found" component={NotFound} />

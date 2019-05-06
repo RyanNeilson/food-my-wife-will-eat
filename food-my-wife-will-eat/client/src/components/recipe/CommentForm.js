@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
 import { addComment } from "../../actions/recipeActions";
+import { getCurrentProfile } from "../../actions/profileActions";
 
 class CommentForm extends Component {
   constructor(props) {
@@ -16,6 +17,10 @@ class CommentForm extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.props.getCurrentProfile();
+  }
+
   componentWillReceiveProps(newProps) {
     if (newProps.errors) {
       this.setState({ errors: newProps.errors });
@@ -26,14 +31,15 @@ class CommentForm extends Component {
     e.preventDefault();
 
     const { user } = this.props.auth;
+    const { profile } = this.props.profile;
     const { recipeId } = this.props;
 
     const newComment = {
       text: this.state.text,
       name: user.name,
-      avatar: user.avatar
+      avatar: user.avatar,
+      handle: profile.handle
     };
-
     this.props.addComment(recipeId, newComment);
     this.setState({ text: "" });
   }
@@ -49,7 +55,7 @@ class CommentForm extends Component {
       <div className="post-form mb-3">
         <div className="card card-info">
           <div className="card-header bg-info text-white">
-            Leave a comment...
+            Comment on this recipe
           </div>
           <div className="card-body">
             <form onSubmit={this.onSubmit}>
@@ -77,15 +83,17 @@ CommentForm.propTypes = {
   addComment: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   recipeId: PropTypes.string.isRequired,
-  errors: PropTypes.object.isRequired
+  errors: PropTypes.object.isRequired,
+  getCurrentProfile: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
   auth: state.auth,
-  errors: state.errors
+  errors: state.errors,
+  profile: state.profile
 });
 
 export default connect(
   mapStateToProps,
-  { addComment }
+  { addComment, getCurrentProfile }
 )(CommentForm);

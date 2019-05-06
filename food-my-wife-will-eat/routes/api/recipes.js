@@ -210,6 +210,7 @@ router.post(
           text: req.body.text,
           name: req.body.name,
           avatar: req.body.avatar,
+          handle: req.body.handle,
           user: req.user.id
         };
 
@@ -258,6 +259,43 @@ router.delete(
       .catch(err =>
         res.status(404).json({ recipenotfound: "No recipe found" })
       );
+  }
+);
+
+// @route   POST api/recipe/ratings/:id
+// @desc    Rate recipe
+// @access  Private
+router.post(
+  "/ratings/:id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Profile.findOne({ user: req.user.id }).then(profile => {
+      Recipe.findById(req.params.id)
+        .then(recipe => {
+          if (
+            recipe.ratings.filter(
+              rating => rating.user.toString() === req.user.id
+            ).length > 0
+          ) {
+            return res
+              .status(400)
+              .json({ alreadyrated: "You have already rated this recipe!" });
+          }
+          const newRating = {
+            user: req.user.id,
+            rating: req.body.rating
+          };
+
+          // Add to ratings array
+          recipe.ratings.unshift(newRating);
+
+          // Save
+          recipe.save().then(recipe => res.json(recipe));
+        })
+        .catch(err =>
+          res.status(404).json({ recipenotfound: "No recipe found" })
+        );
+    });
   }
 );
 

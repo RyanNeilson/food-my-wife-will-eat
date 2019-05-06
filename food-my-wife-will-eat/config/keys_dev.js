@@ -1,5 +1,5 @@
 module.exports = {
   mongoURI:
-    "mongodb://<username>:<password>rest of mongodbatlas connection string goes here",
-  secretOrKey: "secret"
+    "Your mongo connection string here",
+  secretOrKey: "yourSecretOrKey"
 };

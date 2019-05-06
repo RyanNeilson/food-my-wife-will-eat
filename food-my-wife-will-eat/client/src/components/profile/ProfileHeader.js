@@ -18,7 +18,7 @@ class ProfileHeader extends Component {
               </div>
             </div>
             <div className="text-center">
-              <h1 className="display-4 text-center">{profile.user.name}</h1>
+              <h3 className="text-center profile-user">{profile.user.name}</h3>
               <p className="lead text-center">
                 {isEmpty(profile.social && profile.social.twitter) ? null : (
                   <a

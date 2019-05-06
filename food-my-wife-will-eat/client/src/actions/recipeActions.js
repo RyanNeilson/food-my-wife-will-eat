@@ -62,8 +62,8 @@ export const getRecipes = () => dispatch => {
     )
     .catch(err =>
       dispatch({
-        type: GET_RECIPES,
-        payload: null
+        type: GET_ERRORS,
+        payload: err.response.data
       })
     );
 };
@@ -81,8 +81,8 @@ export const getRecipe = id => dispatch => {
     )
     .catch(err =>
       dispatch({
-        type: GET_RECIPE,
-        payload: null
+        type: GET_ERRORS,
+        payload: err.response.data
       })
     );
 };
@@ -170,6 +170,20 @@ export const deleteComment = (recipeId, commentId) => dispatch => {
         })
       );
   }
+};
+
+// Add Rating
+export const addRating = (recipeId, ratingData) => dispatch => {
+  dispatch(clearErrors());
+  axios
+    .post(`/api/recipes/ratings/${recipeId}`, ratingData)
+    .then(res => dispatch(getRecipes()))
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
 };
 
 // Set loading state

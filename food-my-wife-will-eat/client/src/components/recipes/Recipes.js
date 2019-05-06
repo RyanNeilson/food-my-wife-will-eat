@@ -24,10 +24,7 @@ class Recipes extends Component {
       <div className="feed">
         <div className="container">
           <div className="row">
-            <div className="col-md-12">
-              <h3>Latest Recipes</h3>
-              {recipeContent}
-            </div>
+            <div className="col-md-12">{recipeContent}</div>
           </div>
         </div>
       </div>

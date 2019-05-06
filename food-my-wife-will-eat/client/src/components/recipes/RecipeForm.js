@@ -54,46 +54,48 @@ class RecipeForm extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="post-form mb-3">
-        <div className="card card-info">
-          <div className="card-header bg-info text-white">
-            Create a New Recipe
-          </div>
-          <div className="card-body">
-            <form onSubmit={this.onSubmit}>
-              <div className="form-group">
-                <TextFieldGroup
-                  placeholder="Recipe Name"
-                  name="title"
-                  value={this.state.title}
-                  onChange={this.onChange}
-                  error={errors.title}
-                />
+      <div className="container">
+        <div className="post-form mb-3">
+          <div className="card card-info">
+            <div className="card-header bg-info text-white">
+              Create a New Recipe
+            </div>
+            <div className="card-body">
+              <form onSubmit={this.onSubmit}>
+                <div className="form-group">
+                  <TextFieldGroup
+                    placeholder="Recipe Name"
+                    name="title"
+                    value={this.state.title}
+                    onChange={this.onChange}
+                    error={errors.title}
+                  />
 
-                <TextAreaFieldGroup
-                  placeholder="Ingredients - separate ingredients with a semicolon - ex. 2
+                  <TextAreaFieldGroup
+                    placeholder="Ingredients - separate ingredients with a semicolon - ex. 2
                   Tbsp white sugar; 2 1/2 cups flour; 1/2 tsp salt"
-                  name="ingredients"
-                  label="Ingredients"
-                  value={this.state.ingredients}
-                  onChange={this.onChange}
-                  error={errors.ingredients}
-                />
-                <TextAreaFieldGroup
-                  placeholder="Directions - separate directions with a semicolon - ex.
+                    name="ingredients"
+                    label="Ingredients"
+                    value={this.state.ingredients}
+                    onChange={this.onChange}
+                    error={errors.ingredients}
+                  />
+                  <TextAreaFieldGroup
+                    placeholder="Directions - separate directions with a semicolon - ex.
                   Preheat oven to 450F; Combine dry ingredients in a large bowl;
                   Add wet ingredients and stir until smooth"
-                  name="directions"
-                  label="Directions"
-                  value={this.state.directions}
-                  onChange={this.onChange}
-                  error={errors.directions}
-                />
-              </div>
-              <button type="submit" className="btn btn-dark">
-                Submit
-              </button>
-            </form>
+                    name="directions"
+                    label="Directions"
+                    value={this.state.directions}
+                    onChange={this.onChange}
+                    error={errors.directions}
+                  />
+                </div>
+                <button type="submit" className="btn btn-dark">
+                  Submit
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
